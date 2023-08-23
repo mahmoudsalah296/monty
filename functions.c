@@ -103,3 +103,29 @@ void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	printf("%d\n", (*stack)->n);
 }
+
+
+
+/**
+ * pop - function to pop the stack top
+ * Return: void
+ * @stack: the stack header
+ * @line_number: current line number of file stream
+*/
+void pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+        {
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n",
+				my_data.i);
+		free_all(&my_data);
+		exit(EXIT_FAILURE);
+        }
+
+	temp = *stack;
+	*stack = (*stack)->next;
+
+	free(temp);
+}

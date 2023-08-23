@@ -12,6 +12,7 @@ void (*check_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 			{"pall", pall},
 			{"push", push},
 			{"pint", pint},
+			{"pop", pop},
 			{NULL, NULL}};
 
 	for (; arr[i].opcode != NULL; i++)
