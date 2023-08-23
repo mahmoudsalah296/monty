@@ -112,7 +112,7 @@ void _div(stack_t **stack, __attribute((unused))unsigned int line_number)
 
 	if ((*stack)->n == 0)
 	{
-		dprintf(STDERR_FILENO, "L%u: division by zero"
+		dprintf(STDERR_FILENO, "L%u: division by zero\n"
 				, my_data.i);
 		free_all(&my_data);
 		exit(EXIT_FAILURE);
