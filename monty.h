@@ -61,17 +61,38 @@ typedef struct data_s
 extern data_t my_data;
 
 
-
+/*data.c*/
 void set_data(data_t *my_data);
 void free_all(data_t *my_data);
 void free_itr(data_t *my_data);
-int _is_built_in(char ***container);
+
+/*parsing.c*/
 int _parsing(char **line, char ***container);
+
+/*_cmd_handlers.c*/
 int _getcmd(char **argv, FILE **fd, char **line);
+
+/*check_opcode.c*/
+void (*check_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
+
+/*functions.c*/
 void push(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 int check_num(char *num);
-void (*check_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
+/*functions1.c*/
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+
+
+/*functions2.c*/
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+
+
 #endif /* monty_H */

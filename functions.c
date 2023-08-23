@@ -92,7 +92,7 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
  * @line_number: current line number of file stream
 */
 void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
-{	
+{
 	if (*stack == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n",
@@ -117,13 +117,12 @@ void pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	stack_t *temp;
 
 	if (*stack == NULL)
-        {
+	{
 		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n",
 				my_data.i);
 		free_all(&my_data);
 		exit(EXIT_FAILURE);
-        }
-
+	}
 	temp = *stack;
 	*stack = (*stack)->next;
 
