@@ -57,6 +57,11 @@ typedef struct data_s
 	unsigned int i;
 } data_t;
 
+
+extern data_t my_data;
+
+
+
 void set_data(data_t *my_data);
 void free_all(data_t *my_data);
 void free_itr(data_t *my_data);
@@ -64,8 +69,8 @@ int _is_built_in(char ***container);
 int _parsing(char **line, char ***container);
 int _getcmd(char **argv, FILE **fd, char **line);
 void push(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 int check_num(char *num);
 void (*check_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
-extern data_t my_data;
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 #endif /* monty_H */

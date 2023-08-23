@@ -11,6 +11,7 @@ void (*check_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 	instruction_t arr[] = {
 			{"pall", pall},
 			{"push", push},
+			{"pint", pint},
 			{NULL, NULL}};
 
 	for (; arr[i].opcode != NULL; i++)

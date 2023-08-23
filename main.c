@@ -1,6 +1,7 @@
 #include "monty.h"
 
-data_t my_data;
+data_t my_data = {NULL, NULL, NULL, NULL, 0};
+
 /**
  * main - program start point
  * Return: 0 on success , 1 otherwise

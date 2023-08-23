@@ -83,3 +83,23 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		temp = temp->next;
 	}
 }
+
+
+/**
+ * pint - function to print the stack top
+ * Return: void
+ * @stack: the stack header
+ * @line_number: current line number of file stream
+*/
+void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{	
+	if (*stack == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n",
+				my_data.i);
+		free_all(&my_data);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
+}
