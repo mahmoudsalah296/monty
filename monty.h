@@ -9,13 +9,6 @@
 #include <fcntl.h>
 
 
-typedef struct data_s
-{
-	FILE *fd;
-	char *line;
-	char **container;
-} data_t;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -46,13 +39,33 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+/**
+ * struct data_s - all the program data saved here
+ * @fd: file pointer
+ * @line: the line to be read from the file
+ * @container: where the parsed line is saved
+ * @head: head of the stack
+ * @i: number of line read from the file
+*/
+typedef struct data_s
+{
+	FILE *fd;
+	char *line;
+	char **container;
+	stack_t *head;
+	unsigned int i;
+} data_t;
+
 void set_data(data_t *my_data);
 void free_all(data_t *my_data);
+void free_itr(data_t *my_data);
 int _is_built_in(char ***container);
 int _parsing(char **line, char ***container);
 int _getcmd(char **argv, FILE **fd, char **line);
-void push(stack_t **head, int n);
-void pall(stack_t *head);
-
-extern stack_t *head;
+void push(stack_t **stack, unsigned int line_number);
+int check_num(char *num);
+void (*check_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
+extern data_t my_data;
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 #endif /* monty_H */
