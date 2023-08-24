@@ -93,6 +93,7 @@ void _div(stack_t **stack, unsigned int line_number);
 /*functions2.c*/
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, __attribute__((unused))unsigned int line_number);
 
 
 #endif /* monty_H */

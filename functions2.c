@@ -60,3 +60,29 @@ void mod(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	free(temp);
 
 }
+
+/**
+ * pchar - print ascii representation of first number of stack
+ * @stack: head of the stack
+ * @line_number: the current number read from the file
+ * Return: nothing
+*/
+void pchar(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", my_data.i);
+		free_all(&my_data);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", my_data.i);
+		free_all(&my_data);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		printf("%c\n", (*stack)->n);
+	}
+}
