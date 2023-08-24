@@ -117,7 +117,10 @@ void rotl(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	stack_t *tmp, *tmp2;
 
 	if (*stack == NULL)
+	{
+		free_all(&my_data);
 		return;
+	}
 	tmp = *stack;
 	while (tmp->next)
 	{
