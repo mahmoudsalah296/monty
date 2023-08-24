@@ -22,6 +22,11 @@ int main(int argc, char **argv)
 	{
 		my_data.i++;
 
+		if (is_spaces(my_data.line))
+		{
+			free(my_data.line);
+			continue;
+		}
 		if (!_parsing(&(my_data.line), &(my_data.container)))
 		{
 		free_all(&my_data);

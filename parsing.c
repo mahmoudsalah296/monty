@@ -1,6 +1,28 @@
 #include "monty.h"
 
 /**
+ * is_spaces - checks if a line is empty
+ * Return: 1 if the line is empty and 0 otherwise
+ * @line: the string line to check
+*/
+
+int is_spaces(char *line)
+{
+	int i = 0;
+
+	while (line[i] != '\0')
+	{
+		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n')
+		{
+			return (0);
+		}
+		i++;
+	}
+
+	return (1);
+}
+
+/**
  * _parsing - function to parse a line into chunks
  * Return: 1 on success or 0 otherwise
  * @line: the line to be parsed
@@ -16,6 +38,7 @@ int _parsing(char **line, char ***container)
 		return (0);
 
 	temp = strtok(*line, " \t\n");
+
 	if (temp != NULL)
 		(*container)[0] = strdup(temp);
 
