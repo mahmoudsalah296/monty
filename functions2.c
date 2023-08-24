@@ -71,20 +71,17 @@ void pchar(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't pchar, stack empty\n",
+		fprintf(stderr, "L%u: can't pchar, stack empty\n",
 				my_data.i);
 		free_all(&my_data);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't pchar, value out of range\n"
+		fprintf(stderr, "L%u: can't pchar, value out of range\n"
 				, my_data.i);
 		free_all(&my_data);
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		printf("%c\n", (*stack)->n);
-	}
+	printf("%c\n", (*stack)->n);
 }
