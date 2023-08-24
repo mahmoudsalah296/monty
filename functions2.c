@@ -105,3 +105,29 @@ void pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl - otates the stack to the top.
+ * @stack: head of the stack
+ * @line_number: the current number read from the file
+ * Return: nothing
+*/
+void rotl(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+
+	if (*stack == NULL)
+		return;
+	tmp = *stack;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
+	tmp2 = (*stack)->next;
+	tmp->next = *stack;
+	(*stack)->next->prev = NULL;
+	(*stack)->next = NULL;
+	(*stack)->prev = tmp;
+	if (tmp2 != NULL)
+		*stack = tmp2;
+}
