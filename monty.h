@@ -97,4 +97,7 @@ void pchar(stack_t **stack, __attribute__((unused))unsigned int line_number);
 void pstr(stack_t **stack, __attribute__((unused))unsigned int line_number);
 void rotl(stack_t **stack, __attribute__((unused))unsigned int line_number);
 
+/*functions3.c*/
+void rotr(stack_t **stack, __attribute__((unused))unsigned int line_number);
+
 #endif /* monty_H */
