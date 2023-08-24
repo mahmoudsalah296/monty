@@ -33,12 +33,14 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 		}
+		if (is_comment(my_data.container[0][0]))
+			continue;
 		op_func = check_opcode(my_data.container[0]);
 
 		if (op_func == NULL)
 		{
-			dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", my_data.i
-					, my_data.container[0]);
+			dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n"
+					, my_data.i, my_data.container[0]);
 			free_all(&my_data);
 			exit(EXIT_FAILURE);
 		}

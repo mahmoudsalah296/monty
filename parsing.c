@@ -1,5 +1,15 @@
 #include "monty.h"
 
+
+int is_comment(char c)
+{
+	if (c == '#')
+	{
+		free_itr(&my_data);
+		return (1);
+	}
+	return (0);
+}
 /**
  * is_spaces - checks if a line is empty
  * Return: 1 if the line is empty and 0 otherwise
@@ -21,6 +31,7 @@ int is_spaces(char *line)
 
 	return (1);
 }
+
 
 /**
  * _parsing - function to parse a line into chunks

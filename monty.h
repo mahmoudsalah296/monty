@@ -69,6 +69,7 @@ void free_itr(data_t *my_data);
 /*parsing.c*/
 int _parsing(char **line, char ***container);
 int is_spaces(char *line);
+int is_comment(char c);
 
 /*_cmd_handlers.c*/
 int _getcmd(char **argv, FILE **fd, char **line);
